@@ -11,19 +11,31 @@ on:
 
 jobs:
   test:
-    name: Run tests
+    name: Run tests and linting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check repository contents
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      
+      - name: Install dependencies
         run: |
-          echo "Repository path: $GITHUB_WORKSPACE"
-          ls -la
-      - name: Run default test command if available
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Run tests with pytest
         run: |
-          if [ -f package.json ]; then
-            npm install
-            npm test
-          else
-            echo "No package.json found; no tests configured yet."
-          fi
+          python -m pytest tests/ -v --tb=short
+      
+      - name: Check test coverage
+        run: |
+          pip install pytest-cov
+          python -m pytest tests/ --cov=src --cov-report=term-missing
+      
+      - name: Run linting (optional)
+        run: |
+          pip install flake8
+          flake8 src/ tests/ --count --select=E9,F63,F7,F82 --show-source --statistics || true
