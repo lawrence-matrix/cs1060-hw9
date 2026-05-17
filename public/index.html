@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS1060 HW9</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 32px;
+        background: #f4f7fb;
+        color: #1f2937;
+      }
+      main {
+        max-width: 720px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 16px 48px rgba(15, 23, 42, 0.08);
+      }
+      h1 {
+        margin-top: 0;
+      }
+      a {
+        color: #2563eb;
+      }
+      .badge {
+        display: inline-block;
+        margin-bottom: 16px;
+        padding: 4px 10px;
+        background: #eff6ff;
+        border-radius: 999px;
+        color: #1d4ed8;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <span class="badge">CS1060 HW9</span>
+      <h1>CS1060 Homework 9 Repository</h1>
+      <p>
+        This repository contains a small matrix utility library, unit tests, CI workflow configuration, and documentation for HW9.
+      </p>
+      <ul>
+        <li><strong>AGENTS.md</strong> - project context and testing instructions</li>
+        <li><strong>src/matrix.py</strong> - matrix operations implementation</li>
+        <li><strong>tests/test_matrix.py</strong> - comprehensive pytest suite</li>
+        <li><strong>.github/workflows/ci.yml</strong> - CI pipeline with Vercel deployment support</li>
+      </ul>
+      <p>
+        To deploy this project to Vercel, configure the repository secrets <code>VERCEL_TOKEN</code>, <code>VERCEL_ORG_ID</code>, and <code>VERCEL_PROJECT_ID</code>.
+      </p>
+      <p>
+        The CI pipeline is designed to run tests on all pushes and pull requests. When configured, it can deploy feature branches to Vercel preview and the <code>main</code> branch to production.
+      </p>
+    </main>
+  </body>
+</html>
