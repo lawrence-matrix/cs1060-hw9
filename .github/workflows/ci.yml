@@ -13,8 +13,6 @@ jobs:
   test:
     name: Run tests and linting
     runs-on: ubuntu-latest
-    outputs:
-      tests-passed: ${{ steps.pytest.outcome == 'success' }}
     steps:
       - uses: actions/checkout@v4
       
